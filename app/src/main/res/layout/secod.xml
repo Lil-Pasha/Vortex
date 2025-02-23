@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/purple_700"
+        android:backgroundTint="@color/purple_700"
+        android:backgroundTintMode="screen">
+
+        <TextView
+            android:id="@+id/main_text"
+            android:layout_width="347dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="128dp"
+            android:text="@string/main_text"
+            android:textAlignment="center"
+            android:textColor="@color/main_text"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextSizeCheck" />
+
+        <Button
+            android:id="@+id/b_t"
+            android:layout_width="135dp"
+            android:layout_height="63dp"
+            android:backgroundTint="@color/b_t"
+            android:text="@string/b_t"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/usr_1"
+            app:layout_constraintVertical_bias="0.72" />
+
+        <EditText
+            android:id="@+id/usr_1"
+            android:layout_width="253dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="372dp"
+            android:ems="10"
+            android:hint="Введите что хотите..."
+            android:inputType="text"
+            android:text="@string/usr_1"
+            android:textColor="@color/usr_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText,SpeakableTextPresentCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
