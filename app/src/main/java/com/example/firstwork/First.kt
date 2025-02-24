@@ -1,16 +1,20 @@
 package com.example.firstwork
 
-
+import android.content.Context
+import android.content.Intent
+import android.graphics.drawable.AnimationDrawable
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
+import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
 
+// Функция для проверки подключения к интернету
 fun isNetworkAvailable(context: Context): Boolean {
     val connectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -28,30 +32,64 @@ class first : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.secod)
 
-        val label = findViewById<TextView>(R.id.main_text)
+        val userLogin: EditText = findViewById(R.id.usr_1)
+        val userPass: EditText = findViewById(R.id.usr_2)
+
+        val rootLayout = findViewById<View>(R.id.rootLayout)
+        val animationDrawable = rootLayout.background as? AnimationDrawable
+        animationDrawable?.start()
+
+        val main_text1: TextView = findViewById(R.id.main_text1)
+        main_text1.setOnClickListener {
+            val intent = Intent(this, First_1::class.java)
+            startActivity(intent)
+
         val userData: EditText = findViewById(R.id.usr_1)
         val button: Button = findViewById(R.id.b_t)
 
-        button.setOnClickListener {
-            val wordMap = mapOf(
-                "Паша" to "ткг:@pashtetys1",
-                "Айба" to "воздухан",
-                "Алим" to "сиськастый",
-                "Руслан" to "на работу надо",
-                "Карина" to "чмошница",
-                "Аполля" to "нефор",
-                "Адилет" to "читает диз на молоко"
 
-            )
-            val text = userData.text.toString().trim()
-            if (wordMap.containsKey(text))
-                Toast.makeText(this, wordMap[text], Toast.LENGTH_SHORT).show()
-            else
-                label.text = text
-            if (isNetworkAvailable(this))
-                Toast.makeText(this, "Интернет доступен", Toast.LENGTH_SHORT).show()
-            else
-                Toast.makeText(this, "Нет подключения к интернету", Toast.LENGTH_SHORT).show()
+
+            button.setOnClickListener {
+                val login = userLogin.text.toString().trim()
+                val pass = userPass.text.toString().trim()
+
+                val animation = AnimationUtils.loadAnimation(this, R.anim.but_cl)
+                button.startAnimation(animation)
+
+                if (login == "" || pass == "")
+                    Toast.makeText(this, "Заполните все поля", Toast.LENGTH_SHORT).show()
+                else {
+                    val user = User(login, pass)
+
+                    val db = Dbhelper(this, null)
+
+                    db.addUser(user)
+                    Toast.makeText(this, "Пользователь добавлен", Toast.LENGTH_SHORT).show()
+
+                    userLogin.text.clear()
+                    userPass.text.clear()
+
+
+                    val wordMap = mapOf(
+                        "блять" to "не допустимые значения",
+                        "сосал" to "не допустимые значения",
+                        "сука" to "не допустимые значения",
+                        "долбоеб" to "не допустимые значения",
+                        "мразь" to "не допустимые значения",
+
+                        )
+
+                    val text = userData.text.toString().trim()
+                    if (wordMap.containsKey(text)) {
+                        Toast.makeText(this, wordMap[text], Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
         }
     }
+
 }
+
+
+
+

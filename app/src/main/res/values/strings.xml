@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name" translatable="false">Vortex</string>
-    <string name="b_t" translatable="true">Войти</string>
-    <string name="main_text" translatable="true">Добро пожаловать</string>
-    <string name="usr_1" translatable="true">  </string>
+    <string name="b_t" translatable="false">Войти</string>
+    <string name="main_text" translatable="false">Зарегиструйтесь</string>
+    <string name="main_text1" translatable="false">Авторизируйтесь</string>
+    <string name="usr_1" translatable="false">  </string>
+    <string name="usr_2" translatable="false">  </string>
 </resources>
