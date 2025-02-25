@@ -43,51 +43,34 @@ class first : ComponentActivity() {
         main_text1.setOnClickListener {
             val intent = Intent(this, First_1::class.java)
             startActivity(intent)
+        }
 
-        val userData: EditText = findViewById(R.id.usr_1)
         val button: Button = findViewById(R.id.b_t)
+        button.setOnClickListener {
+            val login = userLogin.text.toString().trim()
+            val pass = userPass.text.toString().trim()
 
+            val animation = AnimationUtils.loadAnimation(this, R.anim.but_cl)
+            button.startAnimation(animation)
 
+            if (login == "" || pass == "") {
+                Toast.makeText(this, "Заполните все поля", Toast.LENGTH_SHORT).show()
+            } else {
+                val user = User(login, pass)
 
-            button.setOnClickListener {
-                val login = userLogin.text.toString().trim()
-                val pass = userPass.text.toString().trim()
+                val db = Dbhelper(this, null)
+                db.addUser(user)
+                Toast.makeText(this, "Пользователь добавлен", Toast.LENGTH_SHORT).show()
 
-                val animation = AnimationUtils.loadAnimation(this, R.anim.but_cl)
-                button.startAnimation(animation)
+                userLogin.text.clear()
+                userPass.text.clear()
 
-                if (login == "" || pass == "")
-                    Toast.makeText(this, "Заполните все поля", Toast.LENGTH_SHORT).show()
-                else {
-                    val user = User(login, pass)
-
-                    val db = Dbhelper(this, null)
-
-                    db.addUser(user)
-                    Toast.makeText(this, "Пользователь добавлен", Toast.LENGTH_SHORT).show()
-
-                    userLogin.text.clear()
-                    userPass.text.clear()
-
-
-                    val wordMap = mapOf(
-                        "блять" to "не допустимые значения",
-                        "сосал" to "не допустимые значения",
-                        "сука" to "не допустимые значения",
-                        "долбоеб" to "не допустимые значения",
-                        "мразь" to "не допустимые значения",
-
-                        )
-
-                    val text = userData.text.toString().trim()
-                    if (wordMap.containsKey(text)) {
-                        Toast.makeText(this, wordMap[text], Toast.LENGTH_SHORT).show()
-                    }
-                }
+                // Переход на второй экран после успешного добавления пользователя
+                val intent = Intent(this, First_1::class.java)
+                startActivity(intent)
             }
         }
     }
-
 }
 
 

@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name" translatable="false">Vortex</string>
     <string name="b_t" translatable="false">Войти</string>
+    <string name="b_t2" translatable="false">Посмротреть</string>
     <string name="main_text" translatable="false">Зарегиструйтесь</string>
     <string name="main_text1" translatable="false">Авторизируйтесь</string>
     <string name="usr_1" translatable="false">  </string>
     <string name="usr_2" translatable="false">  </string>
+    <string name="main1" translatable="false">Конспекты по PHP и ПК сетям</string>
 </resources>

@@ -2,5 +2,6 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/bodoni_moda_extrabold</item>
+        <item>@font/cardo_bold</item>
     </array>
 </resources>
