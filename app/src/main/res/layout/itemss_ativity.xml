@@ -2,50 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/gradient_background_2"
-    android:paddingBottom="20dp"
-    android:orientation="vertical"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-
-    <ImageView
-        android:id="@+id/i_l_img"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/pc" />
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background_2"
+    android:orientation="vertical"
+    tools:context=".itemssAtivity">
 
     <TextView
-        android:id="@+id/i_l_tit"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="20dp"
+        android:id="@+id/i_l_tit1"
+        android:layout_margin="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/i_l_desc"
+        android:id="@+id/i_l_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:gravity="end"
+        android:gravity="start"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
         android:text="TextView"
         android:textSize="15sp"
         android:textStyle="bold"
-        tools:ignore="TextSizeCheck" />
+        tools:ignore="TextSizeCheck"/>
 
     <Button
-        android:id="@+id/i_l_b"
-        android:layout_gravity="center"
-        android:paddingVertical="10dp"
+        android:id="@+id/i_l_b1"
         android:layout_width="220dp"
         android:layout_height="50dp"
+        android:layout_gravity="center"
         android:background="@drawable/r_b3"
-        android:text="@string/b_t2" />
+        android:paddingVertical="10dp"
+        android:text="@string/b_t3" />
+
 </LinearLayout>
